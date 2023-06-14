@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Horoscope Generator</title>
+    <style>
+        /* CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Horoscope Generator</h1>
+        <div class="form-group">
+            <label for="name" class="form-label">Enter your name:</label>
+            <input type="text" id="name" class="form-input">
+        </div>
+        <button onclick="generateHoroscope()" class="form-button">Generate Horoscope</button>
+        <div id="horoscope" class="form-group"></div>
+    </div>
+
+    <script>
+        // JavaScript code here
+        function generateHoroscope() {
+            var name = document.getElementById("name").value;
+
+            // Send 'name' to your backend or API endpoint
+            // to generate the horoscope
+
+            // Once you receive the horoscope, display it in the 'horoscope' div
+            var horoscope = "Generated horoscope goes here";
+            document.getElementById("horoscope").innerText = horoscope;
+        }
+    </script>
+</body>
+</html>
