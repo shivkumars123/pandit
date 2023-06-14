@@ -18,17 +18,29 @@
     </div>
 
     <script>
-        // JavaScript code here
         function generateHoroscope() {
-            var name = document.getElementById("name").value;
+    var name = document.getElementById("name").value;
 
-            // Send 'name' to your backend or API endpoint
-            // to generate the horoscope
+    // Make a request to the backend or API endpoint
+    // to generate the horoscope using the OpenAI API
+    fetch('/generate-horoscope', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: name })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Display the generated horoscope
+        var horoscope = data.horoscope;
+        document.getElementById("horoscope").innerText = horoscope;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
 
-            // Once you receive the horoscope, display it in the 'horoscope' div
-            var horoscope = "Generated horoscope goes here";
-            document.getElementById("horoscope").innerText = horoscope;
-        }
     </script>
 </body>
 </html>
